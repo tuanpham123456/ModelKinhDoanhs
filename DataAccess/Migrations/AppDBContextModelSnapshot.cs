@@ -78,6 +78,12 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
+
                     b.HasKey("ID");
 
                     b.ToTable("Payments");
@@ -88,6 +94,12 @@ namespace DataAccess.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
 
                     b.HasKey("ID");
 
@@ -100,6 +112,12 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
+
                     b.HasKey("ID");
 
                     b.ToTable("Payment_Invoices");
@@ -110,6 +128,12 @@ namespace DataAccess.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
 
                     b.HasKey("ID");
 
