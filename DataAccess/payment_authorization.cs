@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class payment_authorization
+    public class payment_authorization : BaseEntity
     {
+        public long ID { get; set; }
     }
 }

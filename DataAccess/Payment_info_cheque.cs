@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    internal class Payment_info_cheque
+    internal class Payment_info_cheque : BaseEntity
     {
+        public long ID { get; set; }
     }
 }

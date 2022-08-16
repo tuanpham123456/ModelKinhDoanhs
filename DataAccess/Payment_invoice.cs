@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class Payment_invoice
+    public class Payment_invoice : BaseEntity
     {
+        public long ID { get; set; }
     }
 }
