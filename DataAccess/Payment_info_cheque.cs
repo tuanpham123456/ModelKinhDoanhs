@@ -8,5 +8,6 @@ namespace DataAccess
 {
     internal class Payment_info_cheque
     {
+        public long ID { get; set; }
     }
 }

@@ -8,5 +8,6 @@ namespace DataAccess
 {
     public class payment_authorization
     {
+        public long ID { get; set; }
     }
 }

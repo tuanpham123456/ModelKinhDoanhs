@@ -8,5 +8,6 @@ namespace DataAccess
 {
     public class Payment_invoice
     {
+        public long ID { get; set; }
     }
 }
