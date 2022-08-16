@@ -23,6 +23,10 @@ namespace DataAccess.DBContext
             {
 
             });
+            modelBuilder.Entity<Ivoice>(entity =>
+            {
+
+            });
 
         }
 
