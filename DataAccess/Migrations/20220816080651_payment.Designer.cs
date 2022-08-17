@@ -3,14 +3,16 @@ using System;
 using DataAccess.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220816080651_payment")]
+    partial class payment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,23 +151,8 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Bank")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Cheque_date")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Cheque_number")
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime");
-
-                    b.Property<int>("Optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Paymet_ID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
@@ -181,20 +168,8 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<double>("Amount")
-                        .HasColumnType("double");
-
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime");
-
-                    b.Property<int>("Invoice_ID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Payment_ID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
