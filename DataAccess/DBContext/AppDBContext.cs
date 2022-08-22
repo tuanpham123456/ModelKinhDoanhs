@@ -39,6 +39,10 @@ namespace DataAccess.DBContext
             {
 
             });
+            modelBuilder.Entity<Payment_Momo>(entity =>
+            {
+
+            });
 
 
         }
