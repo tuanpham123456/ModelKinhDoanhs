@@ -82,10 +82,18 @@ namespace KinhDoanh.Controllers
         }
 
         [HttpPost]
-        public void SavePayment()
+       public void SavePayment()
         {
-            //cập nhật dữ liệu vào db
-            String a = "";
+            //lấy kết quả Momo trả về và hiển thị thông báo cho người dùng (có thể lấy dữ liệu ở đây cập nhật xuống db)
+            string responseFromMomo = Request.Form["data"];
+            JObject jmessage = JObject.Parse(responseFromMomo);
+            string rMessage = jmessage.GetValue("message").ToString();
+            string rOrderId = jmessage.GetValue("orderId").ToString();
+            string rErrorCode = jmessage.GetValue("errorCode").ToString(); // = 0: thanh toán thành công
+            Debug.WriteLine(rMessage);
+            Debug.WriteLine(rOrderId);
+            Debug.WriteLine(rErrorCode);
+            
         }
     }
 }
