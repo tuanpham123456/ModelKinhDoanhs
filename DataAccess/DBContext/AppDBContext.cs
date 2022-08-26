@@ -39,7 +39,7 @@ namespace DataAccess.DBContext
             {
 
             });
-            modelBuilder.Entity<Payment_momo>(entity =>
+            modelBuilder.Entity<Payment_Momo>(entity =>
             {
 
             });
