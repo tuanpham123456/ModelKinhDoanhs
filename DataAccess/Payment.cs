@@ -41,6 +41,6 @@ namespace DataAccess
         // Ghi chú thanh toán
         public string Payment_Notes { get; set; }
 
-        public Member Member { get; set; }           
+                    
     }
 }
