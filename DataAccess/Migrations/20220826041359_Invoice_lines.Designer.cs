@@ -3,14 +3,16 @@ using System;
 using DataAccess.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220826041359_Invoice_lines")]
+    partial class Invoice_lines
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,9 +159,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("Is_Refund")
                         .HasColumnType("int");
 
-                    b.Property<long?>("MemberID")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Method_ID")
                         .HasColumnType("text");
 
@@ -197,8 +196,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("MemberID");
 
                     b.ToTable("Payments");
                 });
@@ -430,20 +427,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Payment_vnps");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment", b =>
-                {
-                    b.HasOne("DataAccess.Member", "Member")
-                        .WithMany("Payment")
-                        .HasForeignKey("MemberID");
-
-                    b.Navigation("Member");
-                });
-
-            modelBuilder.Entity("DataAccess.Member", b =>
-                {
-                    b.Navigation("Payment");
                 });
 #pragma warning restore 612, 618
         }

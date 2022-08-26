@@ -3,14 +3,16 @@ using System;
 using DataAccess.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220826041244_Configs")]
+    partial class Configs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,38 +40,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Configs");
-                });
-
-            modelBuilder.Entity("DataAccess.Invoice_line", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("description")
-                        .HasColumnType("text");
-
-                    b.Property<long>("invoice_ID")
-                        .HasColumnType("bigint");
-
-                    b.Property<double>("quantity")
-                        .HasColumnType("double");
-
-                    b.Property<int>("type_id")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Invoice_lines");
                 });
 
             modelBuilder.Entity("DataAccess.Ivoice", b =>
@@ -157,9 +127,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("Is_Refund")
                         .HasColumnType("int");
 
-                    b.Property<long?>("MemberID")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Method_ID")
                         .HasColumnType("text");
 
@@ -197,8 +164,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("MemberID");
 
                     b.ToTable("Payments");
                 });
@@ -430,20 +395,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Payment_vnps");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment", b =>
-                {
-                    b.HasOne("DataAccess.Member", "Member")
-                        .WithMany("Payment")
-                        .HasForeignKey("MemberID");
-
-                    b.Navigation("Member");
-                });
-
-            modelBuilder.Entity("DataAccess.Member", b =>
-                {
-                    b.Navigation("Payment");
                 });
 #pragma warning restore 612, 618
         }
