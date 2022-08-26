@@ -3,14 +3,16 @@ using System;
 using DataAccess.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220826080943_Users")]
+    partial class Users
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,31 +182,16 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("FacebookAvatarUrl")
-                        .HasColumnType("text");
-
-                    b.Property<string>("FacebookId")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsActived")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
                     b.Property<double>("balance")
                         .HasColumnType("double");
 
-                    b.Property<DateTime>("last_login")
-                        .HasColumnType("datetime");
-
                     b.Property<DateTime>("next_payout_date")
                         .HasColumnType("datetime");
 
                     b.Property<int>("optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("status_id")
                         .HasColumnType("int");
 
                     b.Property<double>("total_payment")
@@ -583,9 +570,6 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("FullName")
                         .HasColumnType("text");
-
-                    b.Property<bool>("IsActived")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("text");
