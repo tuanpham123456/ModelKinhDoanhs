@@ -3,23 +3,48 @@ using System;
 using DataAccess.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220826033740_virtual")]
+    partial class @virtual
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.17");
 
-            modelBuilder.Entity("DataAccess.Ivoice", b =>
+            modelBuilder.Entity("DataAccess.Config", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("key")
+                        .HasColumnType("text");
+
+                    b.Property<string>("value")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Configs");
+                });
+
+            modelBuilder.Entity("DataAccess.Invoice_line", b =>
+                {
+                    b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
@@ -29,7 +54,39 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
-                    b.HasKey("Id");
+                    b.Property<int>("amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .HasColumnType("text");
+
+                    b.Property<long>("invoice_ID")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("quantity")
+                        .HasColumnType("double");
+
+                    b.Property<int>("type_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Invoice_lines");
+                });
+
+            modelBuilder.Entity("DataAccess.Ivoice", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
+
+                    b.HasKey("ID");
 
                     b.ToTable("Ivoices");
                 });
@@ -177,7 +234,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_info_cheque");
+                    b.ToTable("Payment_info_cheques");
                 });
 
             modelBuilder.Entity("DataAccess.Payment_invoice", b =>
@@ -206,7 +263,122 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_Invoices");
+                    b.ToTable("Payment_invoices");
+                });
+
+            modelBuilder.Entity("DataAccess.Payment_momo", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("accessKey")
+                        .HasColumnType("text");
+
+                    b.Property<string>("amount")
+                        .HasColumnType("text");
+
+                    b.Property<string>("errorCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("extraData")
+                        .HasColumnType("text");
+
+                    b.Property<string>("localMessage")
+                        .HasColumnType("text");
+
+                    b.Property<string>("message")
+                        .HasColumnType("text");
+
+                    b.Property<string>("orderId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("orderInfo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("orderType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("partnerCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("payType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("requestId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("responseTime")
+                        .HasColumnType("text");
+
+                    b.Property<string>("signature")
+                        .HasColumnType("text");
+
+                    b.Property<string>("transId")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("payment_momos");
+                });
+
+            modelBuilder.Entity("DataAccess.Payment_vnp", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("vnp_Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("vnp_BankCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_Command")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_CurrCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_IpAddr")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_Locale")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_OrderInfo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_OrderType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_ReturnUrl")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_TmnCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_TxnRef")
+                        .HasColumnType("text");
+
+                    b.Property<string>("vnp_Version")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Payment_vnps");
                 });
 
             modelBuilder.Entity("DataAccess.payment_authorization", b =>
@@ -259,7 +431,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_Authorizations");
+                    b.ToTable("Payment_authorizations");
                 });
 
             modelBuilder.Entity("DataAccess.Payment", b =>
