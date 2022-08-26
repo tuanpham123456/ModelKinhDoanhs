@@ -21,10 +21,8 @@ namespace DataAccess
         public string FacebookId { get; set; }
 
         public string FacebookAvatarUrl { get; set; }
-        
-        public bool IsActived { get; set; }
 
-        public virtual List<Payment> Payment { get; set; }
+        public bool IsActived { get; set; }
 
     }
 }
