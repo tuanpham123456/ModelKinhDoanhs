@@ -55,19 +55,39 @@ namespace DataAccess.DBContext
             {
 
             });
+            modelBuilder.Entity<Payment_result>(entity =>
+            {
+
+            });
+            modelBuilder.Entity<Payment_method>(entity =>
+            {
+
+            });
         }
 
         public virtual DbSet<Member> Members { get; set; }
+        
         public virtual DbSet<Ivoice> Ivoices { get; set; }
+        
         public virtual DbSet<Payment> Payments { get; set; }
+        
         public virtual DbSet<Payment_authorization> Payment_authorizations { get; set; }
+
         public virtual DbSet<Payment_info_cheque> Payment_info_cheques { get; set; }
+        
         public virtual DbSet<Payment_invoice> Payment_invoices { get; set; }
 
         public virtual DbSet<Payment_vnp> Payment_vnps { get; set; }
+        
         public virtual DbSet<Payment_momo> Payment_momos { get; set; }
+        
         public virtual DbSet<Config> Configs { get; set; }
+        
         public virtual DbSet<Invoice_line> Invoice_lines { get; set; }
+
+        public virtual DbSet<Payment_result> Payment_results { get; set; }
+
+        public virtual DbSet<Payment_method> Payment_methods { get; set; }
 
 
     }

@@ -3,14 +3,16 @@ using System;
 using DataAccess.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220826073343_Payment_results")]
+    partial class Payment_results
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -315,23 +317,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Payment_invoices");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment_method", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_methods");
                 });
 
             modelBuilder.Entity("DataAccess.Payment_momo", b =>
