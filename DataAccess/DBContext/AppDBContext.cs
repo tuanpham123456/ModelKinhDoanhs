@@ -47,7 +47,14 @@ namespace DataAccess.DBContext
             {
 
             });
+            modelBuilder.Entity<Invoice_line>(entity =>
+            {
 
+            });
+            modelBuilder.Entity<Config>(entity =>
+            {
+
+            });
         }
 
          public virtual DbSet<Member> Members { get; set; }
@@ -61,6 +68,8 @@ namespace DataAccess.DBContext
         
          public virtual DbSet<Payment_momo> payment_momos { get; set; }
          public virtual DbSet<Payment_vnp> Payment_vnps { get; set; }
+         public virtual DbSet<Invoice_line> Invoice_lines { get; set; }
+         public virtual DbSet<Config> Configs { get; set; }
 
 
     }
