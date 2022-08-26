@@ -8,7 +8,7 @@ namespace DataAccess
 {
     public class Ivoice : BaseEntity
     {
-        public long Id { get; set; }
+        public long ID { get; set; }
         
     }
 }

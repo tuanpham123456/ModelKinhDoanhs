@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220818025437_Init")]
-    partial class Init
+    [Migration("20220826030510_payment_invoices")]
+    partial class payment_invoices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Ivoice", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
@@ -31,7 +31,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Ivoices");
                 });
@@ -174,7 +174,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_info_cheque");
+                    b.ToTable("Payment_info_cheques");
                 });
 
             modelBuilder.Entity("DataAccess.Payment_invoice", b =>
@@ -203,7 +203,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_Invoices");
+                    b.ToTable("Payment_invoices");
                 });
 
             modelBuilder.Entity("DataAccess.payment_authorization", b =>
@@ -256,7 +256,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_Authorizations");
+                    b.ToTable("Payment_authorizations");
                 });
 #pragma warning restore 612, 618
         }

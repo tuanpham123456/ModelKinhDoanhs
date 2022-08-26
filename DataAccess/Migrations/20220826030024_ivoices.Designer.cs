@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220816035224_initials")]
-    partial class initials
+    [Migration("20220826030024_ivoices")]
+    partial class ivoices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Ivoice", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
@@ -31,7 +31,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Ivoices");
                 });
@@ -72,74 +72,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Members");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payments");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment_info_cheque", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_info_cheque");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment_invoice", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_Invoices");
-                });
-
-            modelBuilder.Entity("DataAccess.payment_authorization", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_Authorizations");
                 });
 #pragma warning restore 612, 618
         }

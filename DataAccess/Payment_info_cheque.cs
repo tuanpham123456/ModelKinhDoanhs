@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DataAccess
 {
     // Kiểm tra thông tin thanh toán
-    internal class Payment_info_cheque : BaseEntity
+    public class Payment_info_cheque : BaseEntity
     {
         public long ID { get; set; }
         public int Paymet_ID { get; set; }

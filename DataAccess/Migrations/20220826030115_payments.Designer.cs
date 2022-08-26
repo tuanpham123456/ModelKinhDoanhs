@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220817025416_payment_authorization")]
-    partial class payment_authorization
+    [Migration("20220826030115_payments")]
+    partial class payments
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Ivoice", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
@@ -31,7 +31,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Ivoices");
                 });
@@ -143,120 +143,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Payments");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment_info_cheque", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Bank")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Cheque_date")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Cheque_number")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("Optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Paymet_ID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_info_cheque");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment_invoice", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<double>("Amount")
-                        .HasColumnType("double");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("Invoice_ID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Payment_ID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_Invoices");
-                });
-
-            modelBuilder.Entity("DataAccess.payment_authorization", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Approval_code")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Avs")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Card_code")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Code1")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Code2")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Code3")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Md5")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Payment_ID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Processor")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Response_message")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Transaction_ID")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_Authorizations");
                 });
 #pragma warning restore 612, 618
         }
