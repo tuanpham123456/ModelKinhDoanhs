@@ -58,6 +58,7 @@ namespace DataAccess.DBContext
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<Invoice> Ivoices { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
@@ -78,6 +79,13 @@ namespace DataAccess.DBContext
          public virtual DbSet<Invoice_line> Invoice_lines { get; set; }
          public virtual DbSet<Config> Configs { get; set; }
 >>>>>>> 312914acf98a112bf2d1e6844318c7bc5450c61d
+=======
+        public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Ivoice> Ivoices { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<payment_authorization> Payment_Authorizations { get; set; }
+        public virtual DbSet<Payment_invoice> Payment_Invoices { get; set; }
+>>>>>>> parent of de76b06 (fix)
 
 
     }
