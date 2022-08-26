@@ -14,7 +14,7 @@ namespace DataAccess
         public string Processor { get; set; }
         public string Code1 { get; set; }
         public string Code2 { get; set; }
-        public string Code3 { get; set; }
+        //public string Code3 { get; set; }
         // Mã phê duyệt
         public string Approval_code { get; set; }
         // Hệ thống xác mình địa chỉ (Address Verification System)
