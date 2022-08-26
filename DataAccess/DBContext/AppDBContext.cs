@@ -19,7 +19,7 @@ namespace DataAccess.DBContext
             {
 
             });
-            modelBuilder.Entity<Ivoice>(entity =>
+            modelBuilder.Entity<Invoice>(entity =>
             {
 
             });
@@ -48,7 +48,7 @@ namespace DataAccess.DBContext
         }
 
         public virtual DbSet<Member> Members { get; set; }
-        public virtual DbSet<Ivoice> Ivoices { get; set; }
+        public virtual DbSet<Invoice> Ivoices { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<payment_authorization> Payment_Authorizations { get; set; }
         public virtual DbSet<Payment_invoice> Payment_Invoices { get; set; }
