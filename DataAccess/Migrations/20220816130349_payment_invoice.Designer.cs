@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220826031546_payment_vnps")]
-    partial class payment_vnps
+    [Migration("20220816130349_payment_invoice")]
+    partial class payment_invoice
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Ivoice", b =>
                 {
-                    b.Property<long>("ID")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
@@ -31,7 +31,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Ivoices");
                 });
@@ -151,30 +151,15 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Bank")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Cheque_date")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Cheque_number")
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime");
-
-                    b.Property<int>("Optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Paymet_ID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_info_cheques");
+                    b.ToTable("Payment_info_cheque");
                 });
 
             modelBuilder.Entity("DataAccess.Payment_invoice", b =>
@@ -203,122 +188,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_invoices");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment_momo", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("accessKey")
-                        .HasColumnType("text");
-
-                    b.Property<string>("amount")
-                        .HasColumnType("text");
-
-                    b.Property<string>("errorCode")
-                        .HasColumnType("text");
-
-                    b.Property<string>("extraData")
-                        .HasColumnType("text");
-
-                    b.Property<string>("localMessage")
-                        .HasColumnType("text");
-
-                    b.Property<string>("message")
-                        .HasColumnType("text");
-
-                    b.Property<string>("orderId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("orderInfo")
-                        .HasColumnType("text");
-
-                    b.Property<string>("orderType")
-                        .HasColumnType("text");
-
-                    b.Property<string>("partnerCode")
-                        .HasColumnType("text");
-
-                    b.Property<string>("payType")
-                        .HasColumnType("text");
-
-                    b.Property<string>("requestId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("responseTime")
-                        .HasColumnType("text");
-
-                    b.Property<string>("signature")
-                        .HasColumnType("text");
-
-                    b.Property<string>("transId")
-                        .HasColumnType("text");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("payment_momos");
-                });
-
-            modelBuilder.Entity("DataAccess.Payment_vnp", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("vnp_Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("vnp_BankCode")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_Command")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_CurrCode")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_IpAddr")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_Locale")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_OrderInfo")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_OrderType")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_ReturnUrl")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_TmnCode")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_TxnRef")
-                        .HasColumnType("text");
-
-                    b.Property<string>("vnp_Version")
-                        .HasColumnType("text");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Payment_vnps");
+                    b.ToTable("Payment_Invoices");
                 });
 
             modelBuilder.Entity("DataAccess.payment_authorization", b =>
@@ -327,51 +197,15 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Approval_code")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Avs")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Card_code")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Code1")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Code2")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Code3")
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime");
-
-                    b.Property<string>("Md5")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Optlock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Payment_ID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Processor")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Response_message")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Transaction_ID")
-                        .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Payment_authorizations");
+                    b.ToTable("Payment_Authorizations");
                 });
 #pragma warning restore 612, 618
         }

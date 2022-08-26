@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class Payment_momo : BaseEntity
-    {
-        public long ID { get; set; }
+    internal class Payment_Momo
+    {   
         public string partnerCode { get; set; }
         public string accessKey { get; set; }
         public string requestId { get; set; }
