@@ -63,6 +63,14 @@ namespace DataAccess.DBContext
             {
 
             });
+            modelBuilder.Entity<Customer>(entity =>
+            {
+
+            });
+            modelBuilder.Entity<Partner>(entity =>
+            {
+
+            });
         }
 
         public virtual DbSet<Member> Members { get; set; }
@@ -88,6 +96,8 @@ namespace DataAccess.DBContext
         public virtual DbSet<Payment_result> Payment_results { get; set; }
 
         public virtual DbSet<Payment_method> Payment_methods { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Partner> Partners { get; set; }
 
 
     }

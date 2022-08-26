@@ -3,14 +3,16 @@ using System;
 using DataAccess.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220826074500_Customers")]
+    partial class Customers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,44 +171,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Members");
-                });
-
-            modelBuilder.Entity("DataAccess.Partner", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<double>("balance")
-                        .HasColumnType("double");
-
-                    b.Property<DateTime>("next_payout_date")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("optlock")
-                        .HasColumnType("int");
-
-                    b.Property<double>("total_payment")
-                        .HasColumnType("double");
-
-                    b.Property<double>("total_payouts")
-                        .HasColumnType("double");
-
-                    b.Property<double>("total_refunds")
-                        .HasColumnType("double");
-
-                    b.Property<int>("user_id")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Partners");
                 });
 
             modelBuilder.Entity("DataAccess.Payment", b =>
