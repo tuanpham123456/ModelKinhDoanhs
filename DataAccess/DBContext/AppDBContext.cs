@@ -43,7 +43,10 @@ namespace DataAccess.DBContext
             {
 
             });
+            modelBuilder.Entity<Payment_vnp>(entity =>
+            {
 
+            });
 
         }
 
@@ -57,6 +60,7 @@ namespace DataAccess.DBContext
          public virtual DbSet<Payment_invoice> Payment_invoices { get; set; }
         
          public virtual DbSet<Payment_momo> payment_momos { get; set; }
+         public virtual DbSet<Payment_vnp> Payment_vnps { get; set; }
 
 
     }
